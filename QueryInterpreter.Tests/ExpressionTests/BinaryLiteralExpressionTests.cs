@@ -22,5 +22,13 @@ namespace QueryInterpreter.Tests
                 new BinaryLiteralExpression(false)
                     .Interpret());
         }
+
+        [Test]
+        public void ShouldImplementEquals()
+        {
+            Assert.AreEqual(
+                new BinaryLiteralExpression(false), 
+                new BinaryLiteralExpression(false));
+        }
     }
 }

@@ -18,5 +18,17 @@
         {
             get { return value; }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is BinaryLiteralExpression)
+            {
+                var other = obj as BinaryLiteralExpression;
+
+                return bool.Equals(value, other.value);
+            }
+
+            return false;
+        }
     }
 }
