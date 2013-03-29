@@ -39,16 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AndExpression.cs" />
-    <Compile Include="BinaryLiteralExpression.cs" />
-    <Compile Include="BooleanBinaryOperatorExpression.cs" />
-    <Compile Include="BooleanExpression.cs" />
-    <Compile Include="EqualsExpression.cs" />
-    <Compile Include="Expression.cs" />
-    <Compile Include="NotExpression.cs" />
-    <Compile Include="OrExpression.cs" />
+    <Compile Include="Expressions\AndExpression.cs" />
+    <Compile Include="Expressions\BinaryLiteralExpression.cs" />
+    <Compile Include="Expressions\BooleanBinaryOperatorExpression.cs" />
+    <Compile Include="Expressions\BooleanExpression.cs" />
+    <Compile Include="Expressions\EqualsExpression.cs" />
+    <Compile Include="Expressions\Expression.cs" />
+    <Compile Include="Expressions\NotExpression.cs" />
+    <Compile Include="Expressions\OrExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringLiteralExpression.cs" />
+    <Compile Include="Expressions\StringLiteralExpression.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,4 @@
-﻿namespace QueryInterpreter
+﻿namespace QueryInterpreter.Expressions
 {
     public interface Expression
     {

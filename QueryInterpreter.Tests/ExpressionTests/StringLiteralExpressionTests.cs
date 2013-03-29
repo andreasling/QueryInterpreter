@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
+using QueryInterpreter.Expressions;
 
-namespace QueryInterpreter.Tests
+namespace QueryInterpreter.Tests.ExpressionTests
 {
     [TestFixture]
     public class StringLiteralExpressionTests

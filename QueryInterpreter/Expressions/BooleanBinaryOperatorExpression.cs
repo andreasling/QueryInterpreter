@@ -1,4 +1,4 @@
-﻿namespace QueryInterpreter
+﻿namespace QueryInterpreter.Expressions
 {
     public abstract class BooleanBinaryOperatorExpression : BooleanExpression
     {
