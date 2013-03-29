@@ -3,7 +3,7 @@
 namespace QueryInterpreter.Tests
 {
     [TestFixture]
-    public class Bootstrap
+    public class ExpressionTests
     {
         [Test]
         public void ShouldEvaluateStringLiteralExpression()
@@ -108,130 +108,6 @@ namespace QueryInterpreter.Tests
             var actual = expression.Interpret();
 
             Assert.AreEqual("false", actual);
-        }
-    }
-
-    public class NotExpression : BooleanExpression
-    {
-        private readonly BooleanExpression expression;
-
-        public NotExpression(BooleanExpression expression)
-        {
-            this.expression = expression;
-        }
-
-        public string Interpret()
-        {
-            return Value.ToString().ToLower();
-        }
-
-        public bool Value {
-            get { return !expression.Value; }
-        }
-    }
-
-    public class OrExpression : BooleanExpression
-    {
-        private readonly BooleanExpression left;
-        private readonly BooleanExpression right;
-
-        public OrExpression(BooleanExpression left, BooleanExpression right)
-        {
-            this.left = left;
-            this.right = right;
-        }
-
-        public string Interpret()
-        {
-            return Value.ToString().ToLower();
-        }
-
-        public bool Value {
-            get { return left.Value || right.Value; }
-        }
-    }
-
-    public class AndExpression : BooleanExpression
-    {
-        private readonly BooleanExpression left;
-        private readonly BooleanExpression right;
-
-        public AndExpression(BooleanExpression left, BooleanExpression right)
-        {
-            this.left = left;
-            this.right = right;
-        }
-
-        public virtual string Interpret()
-        {
-            return (Value).ToString().ToLower();
-        }
-
-        public bool Value
-        {
-            get { return left.Value && right.Value; }
-        }
-    }
-
-    public interface BooleanExpression : Expression
-    {
-        bool Value { get; }
-    }
-
-    public class BinaryLiteralExpression : BooleanExpression
-    {
-        public BinaryLiteralExpression(bool value)
-        {
-            Value = value;
-        }
-
-        public virtual string Interpret()
-        {
-            return Value.ToString().ToLower();
-        }
-
-        public bool Value { get; private set; }
-    }
-
-    public class EqualsExpression : BooleanExpression
-    {
-        private readonly Expression left;
-        private readonly Expression right;
-
-        public EqualsExpression(Expression left, Expression right)
-        {
-            this.left = left;
-            this.right = right;
-        }
-
-        public virtual string Interpret()
-        {
-            return Value.ToString().ToLower();
-        }
-
-        public bool Value
-        {
-            get { return string.Equals(left, right); }
-        }
-    }
-
-    public interface Expression
-    {
-        string Interpret();
-    }
-
-    public class StringLiteralExpression : Expression
-    {
-        private string value;
-
-        public StringLiteralExpression(string value)
-        {
-            this.value = value;
-        }
-
-        public virtual string Interpret()
-        {
-            return value;
         }
     }
 }
