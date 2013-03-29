@@ -1,7 +1,8 @@
 ﻿namespace QueryInterpreter
 {
-    public interface BooleanExpression : Expression
+    public abstract class BooleanExpression : Expression
     {
-        bool Value { get; }
+        protected internal abstract bool Value { get; }
+        public abstract string Interpret();
     }
 }

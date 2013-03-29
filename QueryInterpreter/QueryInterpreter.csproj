@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AndExpression.cs" />
     <Compile Include="BinaryLiteralExpression.cs" />
+    <Compile Include="BooleanBinaryOperatorExpression.cs" />
     <Compile Include="BooleanExpression.cs" />
     <Compile Include="EqualsExpression.cs" />
     <Compile Include="Expression.cs" />

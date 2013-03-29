@@ -2,17 +2,21 @@
 {
     public class BinaryLiteralExpression : BooleanExpression
     {
+        private readonly bool value;
+
         public BinaryLiteralExpression(bool value)
         {
-            Value = value;
+            this.value = value;
         }
 
-        public virtual string Interpret()
+        public override string Interpret()
         {
             return Value.ToString().ToLower();
         }
 
-        public bool Value { get; private set; }
+        protected internal override bool Value
+        {
+            get { return value; }
+        }
     }
 }
-

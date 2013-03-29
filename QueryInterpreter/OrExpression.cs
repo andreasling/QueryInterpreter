@@ -1,24 +1,15 @@
 ﻿namespace QueryInterpreter
 {
-    public class OrExpression : BooleanExpression
+    public class OrExpression : BooleanBinaryOperatorExpression
     {
-        private readonly BooleanExpression left;
-        private readonly BooleanExpression right;
-
         public OrExpression(BooleanExpression left, BooleanExpression right)
+            : base(left, right)
         {
-            this.left = left;
-            this.right = right;
         }
 
-        public string Interpret()
+        protected internal override bool Value
         {
-            return Value.ToString().ToLower();
-        }
-
-        public bool Value
-        {
-            get { return left.Value || right.Value; }
+            get { return Left.Value || Right.Value; }
         }
     }
 }

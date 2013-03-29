@@ -9,12 +9,12 @@
             this.expression = expression;
         }
 
-        public string Interpret()
+        public override string Interpret()
         {
             return Value.ToString().ToLower();
         }
 
-        public bool Value
+        protected internal override bool Value
         {
             get { return !expression.Value; }
         }
