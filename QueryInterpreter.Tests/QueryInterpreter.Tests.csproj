@@ -42,7 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExpressionTests.cs" />
+    <Compile Include="ExpressionTests\AndExpressionTests.cs" />
+    <Compile Include="ExpressionTests\BinaryLiteralExpressionTests.cs" />
+    <Compile Include="ExpressionTests\EqualsOperationTests.cs" />
+    <Compile Include="ExpressionTests\StringLiteralExpressionTests.cs" />
+    <Compile Include="ExpressionTests\NotExpressionTests.cs" />
+    <Compile Include="ExpressionTests\OrExpressionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
