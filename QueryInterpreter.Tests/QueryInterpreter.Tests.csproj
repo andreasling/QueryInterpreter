@@ -48,6 +48,7 @@
     <Compile Include="ExpressionTests\StringLiteralExpressionTests.cs" />
     <Compile Include="ExpressionTests\NotExpressionTests.cs" />
     <Compile Include="ExpressionTests\OrExpressionTests.cs" />
+    <Compile Include="ParserTests\ParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
