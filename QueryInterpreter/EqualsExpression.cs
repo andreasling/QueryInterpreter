@@ -18,7 +18,7 @@
 
         protected internal override bool Value
         {
-            get { return string.Equals(left, right); }
+            get { return string.Equals(left.Interpret(), right.Interpret()); }
         }
     }
 }
