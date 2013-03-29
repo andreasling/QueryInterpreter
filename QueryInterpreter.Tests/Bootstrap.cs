@@ -84,6 +84,50 @@ namespace QueryInterpreter.Tests
 
             Assert.AreEqual("true", actual);
         }
+
+        [Test]
+        public void ShouldEvaluateOrExpressionToFalse()
+        {
+            BooleanExpression left = new BinaryLiteralExpression(false);
+            BooleanExpression right = new BinaryLiteralExpression(false);
+
+            var expression = new OrExpression(left, right);
+
+            var actual = expression.Interpret();
+
+            Assert.AreEqual("false", actual);
+        }
+
+        [Test]
+        public void ShouldEvaluateNotExpressionToFalse()
+        {
+            BooleanExpression value = new BinaryLiteralExpression(true);
+
+            var expression = new NotExpression(value);
+
+            var actual = expression.Interpret();
+
+            Assert.AreEqual("false", actual);
+        }
+    }
+
+    public class NotExpression : BooleanExpression
+    {
+        private readonly BooleanExpression expression;
+
+        public NotExpression(BooleanExpression expression)
+        {
+            this.expression = expression;
+        }
+
+        public string Interpret()
+        {
+            return Value.ToString().ToLower();
+        }
+
+        public bool Value {
+            get { return !expression.Value; }
+        }
     }
 
     public class OrExpression : BooleanExpression
