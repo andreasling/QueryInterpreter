@@ -1,10 +1,10 @@
 ﻿namespace QueryInterpreter.Expressions
 {
-    public class BinaryLiteralExpression : BooleanExpression
+    public class BooleanLiteralExpression : BooleanExpression
     {
         private readonly bool value;
 
-        public BinaryLiteralExpression(bool value)
+        public BooleanLiteralExpression(bool value)
         {
             this.value = value;
         }
@@ -21,9 +21,9 @@
 
         public override bool Equals(object obj)
         {
-            if (obj is BinaryLiteralExpression)
+            if (obj is BooleanLiteralExpression)
             {
-                var other = obj as BinaryLiteralExpression;
+                var other = obj as BooleanLiteralExpression;
 
                 return bool.Equals(value, other.value);
             }

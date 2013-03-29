@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Expressions\AndExpression.cs" />
-    <Compile Include="Expressions\BinaryLiteralExpression.cs" />
+    <Compile Include="Expressions\BooleanLiteralExpression.cs" />
     <Compile Include="Expressions\BooleanBinaryOperatorExpression.cs" />
     <Compile Include="Expressions\BooleanExpression.cs" />
     <Compile Include="Expressions\EqualsExpression.cs" />

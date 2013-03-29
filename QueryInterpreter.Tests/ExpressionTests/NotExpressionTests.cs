@@ -12,7 +12,7 @@ namespace QueryInterpreter.Tests.ExpressionTests
             Assert.AreEqual(
                 "true",
                 new NotExpression(
-                    new BinaryLiteralExpression(false))
+                    new BooleanLiteralExpression(false))
                     .Interpret());
         }
 
@@ -22,7 +22,7 @@ namespace QueryInterpreter.Tests.ExpressionTests
             Assert.AreEqual(
                 "false",
                 new NotExpression(
-                    new BinaryLiteralExpression(true))
+                    new BooleanLiteralExpression(true))
                     .Interpret());
         }
     }

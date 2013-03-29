@@ -13,7 +13,7 @@ namespace QueryInterpreter.Parser
 
         public Expression Parse()
         {
-            return new BinaryLiteralExpression(bool.Parse(query));
+            return new BooleanLiteralExpression(bool.Parse(query));
         }
     }
 }

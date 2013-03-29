@@ -12,8 +12,8 @@ namespace QueryInterpreter.Tests.ExpressionTests
             Assert.AreEqual(
                 "true", 
                 new OrExpression(
-                    new BinaryLiteralExpression(true), 
-                    new BinaryLiteralExpression(false))
+                    new BooleanLiteralExpression(true), 
+                    new BooleanLiteralExpression(false))
                     .Interpret());
         }
 
@@ -23,8 +23,8 @@ namespace QueryInterpreter.Tests.ExpressionTests
             Assert.AreEqual(
                 "false", 
                 new OrExpression(
-                    new BinaryLiteralExpression(false), 
-                    new BinaryLiteralExpression(false))
+                    new BooleanLiteralExpression(false), 
+                    new BooleanLiteralExpression(false))
                     .Interpret());
         }
     }

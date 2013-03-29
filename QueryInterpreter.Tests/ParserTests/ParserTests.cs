@@ -11,7 +11,7 @@ namespace QueryInterpreter.Tests.ParserTests
         public void ShouldParseTrueLiteral()
         {
             Assert.AreEqual(
-                new BinaryLiteralExpression(true),
+                new BooleanLiteralExpression(true),
                 new QueryParser("true").Parse()
                 );
         }
