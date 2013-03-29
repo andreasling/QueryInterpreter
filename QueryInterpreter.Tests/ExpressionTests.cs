@@ -8,106 +8,93 @@ namespace QueryInterpreter.Tests
         [Test]
         public void ShouldEvaluateStringLiteralExpression()
         {
-            var expected = "value";
-
-            Expression expression = new StringLiteralExpression(expected);
-
-            var actual = expression.Interpret();
-
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(
+                "value", 
+                new StringLiteralExpression("value")
+                .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateEqualsExpression()
         {
-            Expression left = new StringLiteralExpression("left");
-            Expression right = new StringLiteralExpression("right");
-
-            Expression expression = new EqualsExpression(left, right);
-
-            var actual = expression.Interpret();
-
-            Assert.AreEqual("false", actual);
+            Assert.AreEqual(
+                "false", 
+                new EqualsExpression(
+                    new StringLiteralExpression("left"), 
+                    new StringLiteralExpression("right"))
+                    .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateBinaryLiteralExpressionToTrue()
         {
-            var expression = new BinaryLiteralExpression(true);
-
-            Assert.AreEqual("true", expression.Interpret());
+            Assert.AreEqual(
+                "true", 
+                new BinaryLiteralExpression(true)
+                .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateBinaryLiteralExpressionToFalse()
         {
-            var expression = new BinaryLiteralExpression(false);
-
-            Assert.AreEqual("false", expression.Interpret());
+            Assert.AreEqual(
+                "false", 
+                new BinaryLiteralExpression(false)
+                .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateAndExpressionToTrue()
         {
-            BooleanExpression left = new BinaryLiteralExpression(true);
-            BooleanExpression right = new BinaryLiteralExpression(true);
-
-            var expression = new AndExpression(left, right);
-
-            var actual = expression.Interpret();
-
-            Assert.AreEqual("true", actual);
+            Assert.AreEqual(
+                "true", 
+                new AndExpression(
+                    new BinaryLiteralExpression(true), 
+                    new BinaryLiteralExpression(true))
+                    .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateAndExpressionToFalse()
         {
-            BooleanExpression left = new BinaryLiteralExpression(true);
-            BooleanExpression right = new BinaryLiteralExpression(false);
-
-            var expression = new AndExpression(left, right);
-
-            var actual = expression.Interpret();
-
-            Assert.AreEqual("false", actual);
+            Assert.AreEqual(
+                "false", 
+                new AndExpression(
+                    new BinaryLiteralExpression(true), 
+                    new BinaryLiteralExpression(false))
+                    .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateOrExpressionToTrue()
         {
-            BooleanExpression left = new BinaryLiteralExpression(true);
-            BooleanExpression right = new BinaryLiteralExpression(false);
-
-            var expression = new OrExpression(left, right);
-
-            var actual = expression.Interpret();
-
-            Assert.AreEqual("true", actual);
+            Assert.AreEqual(
+                "true", 
+                new OrExpression(
+                    new BinaryLiteralExpression(true), 
+                    new BinaryLiteralExpression(false))
+                    .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateOrExpressionToFalse()
         {
-            BooleanExpression left = new BinaryLiteralExpression(false);
-            BooleanExpression right = new BinaryLiteralExpression(false);
-
-            var expression = new OrExpression(left, right);
-
-            var actual = expression.Interpret();
-
-            Assert.AreEqual("false", actual);
+            Assert.AreEqual(
+                "false", 
+                new OrExpression(
+                    new BinaryLiteralExpression(false), 
+                    new BinaryLiteralExpression(false))
+                    .Interpret());
         }
 
         [Test]
         public void ShouldEvaluateNotExpressionToFalse()
         {
-            BooleanExpression value = new BinaryLiteralExpression(true);
-
-            var expression = new NotExpression(value);
-
-            var actual = expression.Interpret();
-
-            Assert.AreEqual("false", actual);
+            Assert.AreEqual(
+                "false", 
+                new NotExpression(
+                    new BinaryLiteralExpression(true))
+                    .Interpret());
         }
     }
 }
