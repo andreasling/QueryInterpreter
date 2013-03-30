@@ -120,13 +120,19 @@ namespace QueryInterpreter.Tests.ParserTests
         {
             var i = 0;
 
-            var tokenExpression = new Regex(@"\s*?(\(|\)|((true|not)(?=$|[\s\)])))", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+            var whitespaceExpression = new Regex(@"\s+", RegexOptions.Compiled);
+
+            var tokenExpression = new Regex(@"(\(|\)|((true|not)(?=$|[\s\)])))", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
             while (i < expression.Length)
             {
-                var match = tokenExpression.Match(expression, i);
+                Match match;
 
-                if (match.Success && match.Index == i)
+                if ((match = whitespaceExpression.Match(expression, i)).Index == i && match.Success)
+                {
+                    i += match.Length;
+                }
+                else if ((match = tokenExpression.Match(expression, i)).Index == i && match.Success)
                 {
                     var t = match.Value;
                     i += t.Length;
