@@ -28,7 +28,7 @@ namespace QueryInterpreter.Parser
 
             var operatorExpression = new Regex(@"\(|\)", RegexOptions.Compiled);
 
-            var keywordExpression = new Regex(@"(true|not)(?=$|[\s\)])", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+            var keywordExpression = new Regex(@"(true|false|not|and|or)(?=$|[\s\(\)])", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
             while (i < expression.Length)
             {
