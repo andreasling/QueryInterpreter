@@ -48,6 +48,7 @@
     <Compile Include="Expressions\NotExpression.cs" />
     <Compile Include="Expressions\OrExpression.cs" />
     <Compile Include="Parser\QueryParser.cs" />
+    <Compile Include="Parser\Tokenizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Expressions\StringLiteralExpression.cs" />
   </ItemGroup>
