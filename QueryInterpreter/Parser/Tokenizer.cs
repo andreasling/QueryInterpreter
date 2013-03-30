@@ -26,25 +26,34 @@ namespace QueryInterpreter.Parser
 
             var whitespaceExpression = new Regex(@"\s+", RegexOptions.Compiled);
 
-            var tokenExpression = new Regex(@"(\(|\)|((true|not)(?=$|[\s\)])))", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+            var operatorExpression = new Regex(@"\(|\)", RegexOptions.Compiled);
+
+            var keywordExpression = new Regex(@"(true|not)(?=$|[\s\)])", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
             while (i < expression.Length)
             {
                 Match match;
 
-                if ((match = whitespaceExpression.Match(expression, i)).Index == i && match.Success)
+                if (MatchesAtIndex(match = whitespaceExpression.Match(expression, i), i))
                 {
-                    i += match.Length;
+                    // skip white spaces
                 }
-                else if ((match = tokenExpression.Match(expression, i)).Index == i && match.Success)
+                else if (
+                    MatchesAtIndex(match = operatorExpression.Match(expression, i), i) ||
+                    MatchesAtIndex(match = keywordExpression.Match(expression, i), i))
                 {
-                    var t = match.Value;
-                    i += t.Length;
-                    yield return t.TrimStart();
+                    yield return match.Value;
                 }
                 else
                     throw new ApplicationException("unexpected character " + expression[i]);
+
+                i += match.Length;
             }
+        }
+
+        private static bool MatchesAtIndex(Match match, int i)
+        {
+            return match.Index == i && match.Success;
         }
     }
 }
