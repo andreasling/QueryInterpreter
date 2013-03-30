@@ -1,4 +1,5 @@
-﻿using QueryInterpreter.Expressions;
+﻿using System.Text.RegularExpressions;
+using QueryInterpreter.Expressions;
 
 namespace QueryInterpreter.Parser
 {
@@ -13,7 +14,24 @@ namespace QueryInterpreter.Parser
 
         public Expression Parse()
         {
-            return new BooleanLiteralExpression(bool.Parse(query));
+            return ParseExpression(query);
+        }
+
+        private static Expression ParseExpression(string expression)
+        {
+            if (expression.StartsWith("("))
+                return ParseExpression(expression.Trim('(').Trim(')'));
+
+            if (expression.StartsWith("\"")) 
+                return new StringLiteralExpression(expression.Trim('"'));
+
+            if (expression.StartsWith("not "))
+            {
+                var subExpression = (BooleanExpression)ParseExpression(Regex.Replace(expression, @"^not\s+", string.Empty));
+                return new NotExpression(subExpression);
+            }
+            
+            return new BooleanLiteralExpression(bool.Parse(expression));
         }
     }
 }

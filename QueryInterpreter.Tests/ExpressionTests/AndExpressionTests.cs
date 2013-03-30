@@ -27,5 +27,13 @@ namespace QueryInterpreter.Tests.ExpressionTests
                     new BooleanLiteralExpression(false))
                     .Interpret());
         }
+
+        [Test]
+        public void ShouldImplementEquals()
+        {
+            Assert.AreEqual(
+                new AndExpression(new BooleanLiteralExpression(true), new BooleanLiteralExpression(true)),
+                new AndExpression(new BooleanLiteralExpression(true), new BooleanLiteralExpression(true)));
+        }
     }
 }

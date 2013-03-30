@@ -11,5 +11,19 @@
         {
             get { return Left.Value && Right.Value; }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is AndExpression)
+            {
+                var other = obj as AndExpression;
+
+                return
+                    Left.Equals(other.Left) &&
+                    Right.Equals(other.Right);
+            }
+
+            return false;
+        }
     }
 }

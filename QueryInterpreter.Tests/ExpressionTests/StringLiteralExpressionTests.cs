@@ -14,5 +14,13 @@ namespace QueryInterpreter.Tests.ExpressionTests
                 new StringLiteralExpression("value")
                 .Interpret());
         }
+
+        [Test]
+        public void ShouldImplementEquals()
+        {
+            Assert.AreEqual(
+                new StringLiteralExpression("string"),
+                new StringLiteralExpression("string"));
+        }
     }
 }

@@ -25,5 +25,14 @@ namespace QueryInterpreter.Tests.ExpressionTests
                     new BooleanLiteralExpression(true))
                     .Interpret());
         }
+
+        [Test]
+        public void ShouldImplementEquals()
+        {
+            Assert.AreEqual(
+                new NotExpression(new BooleanLiteralExpression(true)),
+                new NotExpression(new BooleanLiteralExpression(true))
+                );
+        }
     }
 }

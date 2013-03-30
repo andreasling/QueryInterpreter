@@ -18,5 +18,17 @@
         {
             get { return !expression.Value; }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is NotExpression)
+            {
+                var other = obj as NotExpression;
+
+                return expression.Equals(other.expression);
+            }
+
+            return false;
+        }
     }
 }
