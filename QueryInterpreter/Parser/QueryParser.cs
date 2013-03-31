@@ -54,6 +54,12 @@ namespace QueryInterpreter.Parser
                 tokens.Dequeue();
                 expression = new AndExpression(expression as BooleanExpression, ParseExpression(tokens) as BooleanExpression);
             }
+            else if (tokens.Any() && tokens.Peek() == "or")
+            {
+                tokens.Dequeue();
+                expression = new OrExpression(expression as BooleanExpression, ParseExpression(tokens) as BooleanExpression);
+            }
+
 
             return expression;
         }
