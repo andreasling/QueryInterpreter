@@ -64,6 +64,14 @@ namespace QueryInterpreter.Tests.ParserTests
                 new OrExpression(new BooleanLiteralExpression(true), new BooleanLiteralExpression(false)),
                 new QueryParser("true or false").Parse());
         }
+
+        [Test]
+        public void ShouldParseEqualsExpression()
+        {
+            Assert.AreEqual(
+                new EqualsExpression(new BooleanLiteralExpression(true), new BooleanLiteralExpression(true)),
+                new QueryParser("true=true").Parse());
+        }
     }
 }
 

@@ -26,9 +26,9 @@ namespace QueryInterpreter.Parser
 
             var whitespaceExpression = new Regex(@"\s+", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
-            var operatorExpression = new Regex(@"\(|\)", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+            var operatorExpression = new Regex(@"[\(\)=]", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
-            var keywordExpression = new Regex(@"(true|false|not|and|or)(?=$|[\s\(\)])", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+            var keywordExpression = new Regex(@"(true|false|not|and|or)(?=$|[\s\(\)=])", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
             var stringExpression = new Regex(@"""([^""\\]|\\""|\\\\|\\t)*""", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 

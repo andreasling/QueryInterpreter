@@ -49,7 +49,12 @@ namespace QueryInterpreter.Parser
                 expression = new NotExpression(ParseExpression(tokens) as BooleanExpression);
             }
 
-            if (tokens.Any() && tokens.Peek() == "and")
+            if (tokens.Any() && tokens.Peek() == "=")
+            {
+                tokens.Dequeue();
+                expression = new EqualsExpression(expression as BooleanExpression, ParseExpression(tokens) as BooleanExpression);
+            }
+            else if (tokens.Any() && tokens.Peek() == "and")
             {
                 tokens.Dequeue();
                 expression = new AndExpression(expression as BooleanExpression, ParseExpression(tokens) as BooleanExpression);

@@ -110,5 +110,13 @@ namespace QueryInterpreter.Tests.ParserTests
                 new[] { @"""string\tstrong""" },
                 new Tokenizer(@"""string\tstrong""").Tokenize());
         }
+
+        [Test]
+        public void ShouldTokenizeEqualsExpression()
+        {
+            CollectionAssert.AreEqual(
+                new[]{"true","=","true"},
+                new Tokenizer("true=true").Tokenize());
+        }
     }
 }

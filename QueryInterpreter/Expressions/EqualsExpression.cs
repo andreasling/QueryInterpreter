@@ -20,5 +20,19 @@
         {
             get { return string.Equals(left.Interpret(), right.Interpret()); }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is EqualsExpression)
+            {
+                var other = obj as EqualsExpression;
+
+                return
+                    left.Equals(other.left) &&
+                    right.Equals(other.right);
+            }
+
+            return false;
+        }
     }
 }
