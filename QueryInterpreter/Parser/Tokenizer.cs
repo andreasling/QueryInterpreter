@@ -24,11 +24,13 @@ namespace QueryInterpreter.Parser
         {
             var i = 0;
 
-            var whitespaceExpression = new Regex(@"\s+", RegexOptions.Compiled);
+            var whitespaceExpression = new Regex(@"\s+", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
-            var operatorExpression = new Regex(@"\(|\)", RegexOptions.Compiled);
+            var operatorExpression = new Regex(@"\(|\)", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
             var keywordExpression = new Regex(@"(true|false|not|and|or)(?=$|[\s\(\)])", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+
+            var stringExpression = new Regex(@"""([^""\\]|\\""|\\\\|\\t)*""", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
             while (i < expression.Length)
             {
@@ -40,7 +42,8 @@ namespace QueryInterpreter.Parser
                 }
                 else if (
                     MatchesAtIndex(match = operatorExpression.Match(expression, i), i) ||
-                    MatchesAtIndex(match = keywordExpression.Match(expression, i), i))
+                    MatchesAtIndex(match = keywordExpression.Match(expression, i), i) ||
+                    MatchesAtIndex(match = stringExpression.Match(expression, i), i))
                 {
                     yield return match.Value;
                 }

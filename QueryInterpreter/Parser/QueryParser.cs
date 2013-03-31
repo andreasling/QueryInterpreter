@@ -28,7 +28,11 @@ namespace QueryInterpreter.Parser
 
             var token = tokens.Dequeue();
 
-            if (token == "(")
+            if (token.StartsWith("\""))
+            {
+                expression = new StringLiteralExpression(Regex.Unescape(token.Trim('"')));
+            }
+            else if (token == "(")
             {
                 expression = ParseExpression(tokens);
 
