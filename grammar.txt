@@ -1,0 +1,31 @@
+expression
+	and-expression | or-expression | not-expression | parenthesis-expression | equals-expression | literal-expression
+
+and-expression
+	expression 'AND' expression
+
+or-expression
+	expression 'OR' expression
+
+not-expression
+	'NOT' expression
+
+parenthesis-expression
+	'('' expression ')''
+
+equals-expression
+	expression '=' expression
+
+literal-expression
+	symbol | number | string
+
+{
+	"operator" : "not",
+	"operand" : {
+		"operator" : "and", 
+		"operands" : [
+			
+		]
+
+	}
+}

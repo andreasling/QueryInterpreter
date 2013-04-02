@@ -1,0 +1,7 @@
+optimize
+"normal"-form
+  http://en.wikipedia.org/wiki/Normal_form
+  http://en.wikipedia.org/wiki/Conjunctive_normal_form
+  http://en.wikipedia.org/wiki/Disjunctive_normal_form
+  http://en.wikipedia.org/wiki/Canonical_form_(Boolean_algebra)
+  http://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm
