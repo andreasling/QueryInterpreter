@@ -73,21 +73,21 @@ namespace QueryInterpreter.Tests.ParserTests
                 new QueryParser("true=true").Parse());
         }
 
-        [Test]
-        public void ShouldParseComplexExpression()
-        {
-            var actual = new QueryParser("not true=(not \"\"= \"hello\" or false or true) and \"a = b\" =\"a = b\"").Parse();
-            var expected = 
-                new NotExpression(
-                    new EqualsExpression(
-                        new BooleanLiteralExpression(true), 
-                        new OrExpression(
-                            new NotExpression(
-                                new EqualsExpression(
-                                    new StringLiteralExpression("hello"), 
-                                    new StringLiteralExpression("hello"))),
-
-        }
-    }
+//        [Test]
+//        public void ShouldParseComplexExpression()
+//        {
+//            var actual = new QueryParser("not true=(not \"\"= \"hello\" or false or true) and \"a = b\" =\"a = b\"").Parse();
+//            var expected = 
+//                new NotExpression(
+//                    new EqualsExpression(
+//                        new BooleanLiteralExpression(true), 
+//                        new OrExpression(
+//                            new NotExpression(
+//                                new EqualsExpression(
+//                                    new StringLiteralExpression("hello"), 
+//                                    new StringLiteralExpression("hello"))),
+//
+//        }
+	}
 }
 
